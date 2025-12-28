@@ -1,4 +1,28 @@
 #!/usr/bin/env bash
+#
+# Real Work Score (RWS)
+#
+# A tiny CPU+memory throughput benchmark for quick, comparable numbers.
+# It streams zeroes through gzip and reports MB/s so you can compare machines
+# or verify performance changes.
+#
+# Quick start (no args = all cores, 1024 MB):
+#   curl -s https://rws.joeldare.com | bash
+#
+# Other Examples:
+#   curl -s https://rws.joeldare.com | bash -s -- --single
+#   curl -s https://rws.joeldare.com | bash -s -- --multi --cores 4
+#   curl -s https://rws.joeldare.com | bash -s -- --list-cpus
+#
+# Flags:
+#   --single          run one stream (single-core)
+#   --multi           run one stream per core
+#   --mb N            total MB to process (default 1024)
+#   --cores N         number of cores for --multi
+#   --cpus LIST       explicit CPU list (reserved for future use)
+#   --pin CPU         pin to a specific CPU (reserved for future use)
+#   -q, --quiet       suppress non-score output (if any)
+
 set -euo pipefail
 
 MB=1024
@@ -49,6 +73,10 @@ while [[ $# -gt 0 ]]; do
 done
 
 (( LIST_CPUS )) && { list_cpus; exit 0; }
+
+if [[ -z "$MODE" ]]; then
+  MODE="multi"
+fi
 
 run_pipeline() {
   dd if=/dev/zero bs=1M count="$1" 2>/dev/null | gzip -9 >/dev/null
