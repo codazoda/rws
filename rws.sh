@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #
+# <pre>
 # Real Work Score (RWS)
 #
 # A tiny CPU+memory throughput benchmark for quick, comparable numbers.
@@ -45,6 +46,7 @@ EOF
 have() { command -v "$1" >/dev/null 2>&1; }
 default_cores() { getconf _NPROCESSORS_ONLN 2>/dev/null || nproc 2>/dev/null || echo 1; }
 now_ns() { date +%s%N; }
+log() { (( QUIET == 0 )) && echo "$@"; }
 score_from_elapsed() {
   awk -v mb="$MB" -v ns="$1" 'BEGIN{printf "%.1f\n", mb/(ns/1e9)}'
 }
@@ -79,12 +81,14 @@ done
 if [[ -z "$MODE" ]]; then
   MODE="multi"
 fi
+DETECTED_CORES="$(default_cores)"
 
 run_pipeline() {
   dd if=/dev/zero bs=1M count="$1" 2>/dev/null | gzip -9 >/dev/null
 }
 
 if [[ "$MODE" == "single" ]]; then
+  log "cores: detected=$DETECTED_CORES tested=1"
   s=$(now_ns)
   run_pipeline "$MB"
   e=$(now_ns)
@@ -92,7 +96,8 @@ if [[ "$MODE" == "single" ]]; then
   exit 0
 fi
 
-CORES="${CORES:-$(default_cores)}"
+CORES="${CORES:-$DETECTED_CORES}"
+log "cores: detected=$DETECTED_CORES tested=$CORES"
 base=$((MB/CORES)); rem=$((MB%CORES))
 s=$(now_ns)
 for i in $(seq 1 "$CORES"); do
@@ -102,3 +107,4 @@ done
 wait
 e=$(now_ns)
 score_from_elapsed $((e-s))
+# </pre>
