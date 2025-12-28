@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #
-# <pre>
 # Real Work Score (RWS)
 #
 # A tiny CPU+memory throughput benchmark for quick, comparable numbers.
@@ -107,4 +106,3 @@ done
 wait
 e=$(now_ns)
 score_from_elapsed $((e-s))
-# </pre>
