@@ -18,3 +18,11 @@ url -fsSL https://rws.joeldare.com | bash
 ## More information
 
 See the script itself for additional flags and more information.
+
+## Building
+
+Because this is served from GitHub pages we need the script to be copied to index.html, which GitHub will serve as text/plain. I've added a git alias to accomplish this. To build the project run the following command and then add, commit, and push the files.
+
+```bash
+git build
+```
