@@ -45,7 +45,9 @@ EOF
 have() { command -v "$1" >/dev/null 2>&1; }
 default_cores() { getconf _NPROCESSORS_ONLN 2>/dev/null || nproc 2>/dev/null || echo 1; }
 now_ns() { date +%s%N; }
-score_from_elapsed() { awk "BEGIN{printf "%.1f\n", $MB/($1/1e9)}"; }
+score_from_elapsed() {
+  awk -v mb="$MB" -v ns="$1" 'BEGIN{printf "%.1f\n", mb/(ns/1e9)}'
+}
 
 expand_cpu_list() {
   local IFS=',' part
