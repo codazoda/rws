@@ -34,3 +34,5 @@ I got the following results from this script.
 | Machine               | RWS    |
 |-----------------------|--------|
 | 2024 MacBook Air (M3) | 2452.4 |
+| Raspberry Pi 400      |  172.3 |
+| HP t5203 Thin Client  |   75.5 |
