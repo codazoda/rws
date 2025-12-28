@@ -1,6 +1,6 @@
 # Real Work Score (RWS)
 
-A minimal Linux CPU benchmark that outputs a single score (MB/s) so you know how fast it _zips_.
+A minimal CPU benchmark that outputs a single score (MB/s) so you know how fast it _zips_.
 
 ## Quick start
 
