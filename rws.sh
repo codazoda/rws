@@ -7,12 +7,12 @@
 # or verify performance changes.
 #
 # Quick start (no args = all cores, 1024 MB):
-#   curl -s https://rws.joeldare.com | bash
+#   curl -fsSL https://rws.joeldare.com | bash
 #
 # Other Examples:
-#   curl -s https://rws.joeldare.com | bash -s -- --single
-#   curl -s https://rws.joeldare.com | bash -s -- --multi --cores 4
-#   curl -s https://rws.joeldare.com | bash -s -- --list-cpus
+#   curl -fsSL https://rws.joeldare.com | bash -s -- --single
+#   curl -fsSL https://rws.joeldare.com | bash -s -- --multi --cores 4
+#   curl -fsSL https://rws.joeldare.com | bash -s -- --list-cpus
 #
 # Flags:
 #   --single          run one stream (single-core)
