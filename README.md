@@ -5,7 +5,7 @@ A minimal Linux CPU benchmark that outputs a single score (MB/s) using gzip.
 ## Quick start
 
 ```bash
-url -fsSL https://rws.joeldare.com | bash
+curl -fsSL https://rws.joeldare.com | bash
 ```
 
 ## Why this exists
