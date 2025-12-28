@@ -26,3 +26,11 @@ Because this is served from GitHub pages we need the script to be copied to inde
 ```bash
 git build
 ```
+
+## Example Results
+
+I got the following results from this script.
+
+| Machine               | RWS    |
+|-----------------------|--------|
+| 2024 MacBook Air (M3) | 2452.4 |
