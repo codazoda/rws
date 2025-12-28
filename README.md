@@ -31,9 +31,9 @@ git build
 
 I got the following results from this script.
 
-| Machine               | CPU                                | Cores   | RWS    |
-|-----------------------|------------------------------------|---------|--------|
-| 2024 MacBook Air (M3) | Apple M3 (4.05/2.75 GHz)           | 8 (4/4) | 2452.4 |
-| Orange Pi 5 Plus      | ARM Cortex A76/A55 (2.4GHz/1.8GHz) | 8 (4/4) |  625.2 |
-| Raspberry Pi 400      | ARM Cortex-A72 (1.8GHz)            | 4       |  172.3 |
-| HP t5203 Thin Client  | AMD GX-212JC (1.2GHz)              | 2       |   75.5 |
+| Machine               | CPU                             | Cores   | RWS    |
+|-----------------------|---------------------------------|---------|--------|
+| 2024 MacBook Air (M3) | Apple M3 (4.05/2.75 GHz)        | 8 (4/4) | 2452.4 |
+| Orange Pi 5 Plus      | ARM Cortex A76/A55 (2.4/1.8GHz) | 8 (4/4) |  625.2 |
+| Raspberry Pi 400      | ARM Cortex-A72 (1.8GHz)         | 4       |  172.3 |
+| HP t5203 Thin Client  | AMD GX-212JC (1.2GHz)           | 2       |   75.5 |
